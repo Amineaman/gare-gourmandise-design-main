@@ -1,5 +1,6 @@
 import logoLgv from "@/assets/logo-lgv.jpg";
 import { navItems } from "@/lib/site-content";
+import { Link } from "react-router-dom";
 
 const SiteFooter = () => {
   return (
@@ -23,9 +24,9 @@ const SiteFooter = () => {
         <div className="flex flex-col gap-6 text-sm text-white/62">
           <div className="flex flex-wrap gap-4">
             {navItems.map((item) => (
-              <a key={item.href} href={item.href} className="transition hover:text-white">
+              <Link key={item.href} to={`/${item.href}`} className="transition hover:text-white">
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
           <div className="flex flex-col gap-2 sm:flex-row sm:gap-6">

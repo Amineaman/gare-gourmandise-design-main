@@ -2,11 +2,14 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { Play } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import coffeeLatteImg from "@/assets/coffee-latte.jpg";
 import { Button } from "@/components/ui/button";
 import CoffeeCanvas from "@/components/ui/coffee-canvas";
-import { heroStats } from "@/lib/site-content";
+import { heroStats, quickAccessLinks } from "@/lib/site-content";
+
+const toSectionRoute = (href: string) => `/${href}`;
 
 const PremiumHero = () => {
   const heroRef = useRef<HTMLElement | null>(null);
@@ -88,7 +91,7 @@ const PremiumHero = () => {
               size="lg"
               className="h-auto rounded-full bg-[#c8aa64] px-8 py-3.5 font-jost text-[11px] font-medium uppercase tracking-[0.2em] text-[#080c18] shadow-none transition hover:-translate-y-0.5 hover:bg-[#c8aa64]/90"
             >
-              <a href="#menu">Voir le menu</a>
+              <Link to="/#menu">Voir le menu</Link>
             </Button>
             <Button
               asChild
@@ -96,13 +99,25 @@ const PremiumHero = () => {
               variant="ghost"
               className="group h-auto gap-3 rounded-full bg-transparent px-0 py-0 font-jost text-[11px] font-normal uppercase tracking-[0.18em] text-[rgba(240,232,216,0.52)] hover:bg-transparent hover:text-[#f0e8d8]"
             >
-              <a href="#story">
+              <Link to="/#story">
                 <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 transition group-hover:border-white/45">
                   <Play className="h-3.5 w-3.5 fill-current" />
                 </span>
                 Decouvrir l'espace
-              </a>
+              </Link>
             </Button>
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-2">
+            {quickAccessLinks.map((item) => (
+              <Link
+                key={item.href}
+                to={toSectionRoute(item.href)}
+                className="rounded-full border border-white/12 bg-white/[0.04] px-4 py-2 font-jost text-[10px] uppercase tracking-[0.18em] text-white/78 transition hover:border-white/24 hover:bg-white/[0.08] hover:text-white"
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
         </div>
 
@@ -115,7 +130,7 @@ const PremiumHero = () => {
           data-hero-stats
           className="grid gap-5 border-t border-white/10 pt-8 sm:grid-cols-3 lg:col-span-2 lg:grid-cols-3 lg:pt-10"
         >
-          {heroStats.map((stat, index) => (
+          {heroStats.map((stat) => (
             <div
               key={stat.label}
               className="border-white/10 sm:border-r sm:pr-6 lg:pr-10"

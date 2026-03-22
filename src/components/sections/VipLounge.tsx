@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import { Button } from "@/components/ui/button";
 import { useGsapReveal } from "@/hooks/use-gsap-reveal";
@@ -43,10 +44,10 @@ const VipLounge = () => {
               </a>
             </Button>
             <Button asChild variant="outline" className="h-14 rounded-full border-white/14 bg-transparent px-7 text-sm font-semibold uppercase tracking-[0.18em] text-white hover:bg-white/10 hover:text-white">
-              <a href="#visit">
+              <Link to="/#visit">
                 Visit the venue
                 <ArrowRight />
-              </a>
+              </Link>
             </Button>
           </div>
         </div>

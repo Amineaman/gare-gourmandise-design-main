@@ -2,11 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { Menu, Phone, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import logoLgv from "@/assets/logo-lgv.jpg";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { navItems } from "@/lib/site-content";
+import { navItems, quickAccessLinks } from "@/lib/site-content";
+
+const toSectionRoute = (href: string) => `/${href}`;
 
 const SiteHeader = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -53,7 +56,7 @@ const SiteHeader = () => {
             : "border-white/8 bg-[rgba(8,12,24,0.3)] backdrop-blur-md",
         )}
       >
-        <a href="#top" data-nav-item className="flex items-center gap-3">
+        <Link to="/" data-nav-item className="flex items-center gap-3">
           <div className="relative h-10 w-10 overflow-hidden rounded-xl border border-[#c8aa64]/25 bg-[#c8aa64]/8 shadow-[0_12px_30px_rgba(0,0,0,0.16)]">
             <img src={logoLgv} alt="Cafe Resto LGV logo" className="h-full w-full object-cover" />
           </div>
@@ -61,18 +64,18 @@ const SiteHeader = () => {
             <p className="font-editorial text-lg uppercase tracking-[0.28em] text-white">LGV</p>
             <p className="font-jost text-[10px] uppercase tracking-[0.26em] text-white/52">Cafe Resto Bouskoura</p>
           </div>
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-7 md:flex">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.href}
-              href={item.href}
+              to={toSectionRoute(item.href)}
               data-nav-item
               className="font-jost text-[11px] font-normal uppercase tracking-[0.18em] text-white/52 transition duration-300 hover:text-white"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -98,6 +101,24 @@ const SiteHeader = () => {
         </button>
       </nav>
 
+      <div className="mx-auto mt-3 flex max-w-7xl gap-2 overflow-x-auto px-1 pb-1 md:hidden">
+        {quickAccessLinks.map((item) => (
+          <Link
+            key={item.href}
+            to={toSectionRoute(item.href)}
+            className="shrink-0 rounded-full border border-white/12 bg-[rgba(8,12,24,0.62)] px-4 py-2 font-jost text-[10px] uppercase tracking-[0.18em] text-white/80 backdrop-blur-xl transition hover:border-white/24 hover:text-white"
+          >
+            {item.label}
+          </Link>
+        ))}
+        <a
+          href="tel:+212661571270"
+          className="shrink-0 rounded-full border border-[#c8aa64]/28 bg-[#c8aa64]/10 px-4 py-2 font-jost text-[10px] uppercase tracking-[0.18em] text-[#f0e8d8] transition hover:border-[#c8aa64]/46 hover:bg-[#c8aa64]/16"
+        >
+          Reserver
+        </a>
+      </div>
+
       {mobileOpen && (
         <motion.div
           initial={{ opacity: 0, y: -12 }}
@@ -107,14 +128,14 @@ const SiteHeader = () => {
         >
           <div className="flex flex-col gap-2">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.href}
-                href={item.href}
+                to={toSectionRoute(item.href)}
                 className="rounded-2xl px-4 py-3 font-jost text-sm uppercase tracking-[0.18em] text-white/78 transition hover:bg-white/5 hover:text-white"
                 onClick={() => setMobileOpen(false)}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <Button
               asChild

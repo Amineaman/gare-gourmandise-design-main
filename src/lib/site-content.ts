@@ -23,6 +23,13 @@ export const navItems = [
   { label: "Nous trouver", href: "#visit" },
 ];
 
+export const quickAccessLinks = [
+  { label: "Voir le menu", href: "#menu" },
+  { label: "Galerie", href: "#gallery" },
+  { label: "VIP", href: "#vip" },
+  { label: "Visite", href: "#visit" },
+];
+
 export const heroStats = [
   { value: "12+", label: "Origines de cafe" },
   { value: "5.0", label: "Avis Google" },
