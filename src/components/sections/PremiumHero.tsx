@@ -1,13 +1,12 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
-import { ArrowRight, Play, Star } from "lucide-react";
+import { Play } from "lucide-react";
 
 import coffeeLatteImg from "@/assets/coffee-latte.jpg";
 import { Button } from "@/components/ui/button";
-import SplineScene from "@/components/ui/spline-scene";
+import CoffeeCanvas from "@/components/ui/coffee-canvas";
 import { heroStats } from "@/lib/site-content";
-import { ROBOT_OBJECT_NAMES, ROBOT_SCENE_URL } from "@/lib/robot-scene";
 
 const PremiumHero = () => {
   const heroRef = useRef<HTMLElement | null>(null);
@@ -109,13 +108,7 @@ const PremiumHero = () => {
 
         <div data-hero-visual className="relative flex items-center justify-center lg:justify-end">
           <div className="absolute inset-x-[14%] top-[28%] h-[40%] rounded-full bg-[radial-gradient(circle,rgba(200,170,100,0.18),rgba(200,170,100,0.04)_55%,transparent_75%)] blur-[110px]" />
-          <SplineScene
-            scene={ROBOT_SCENE_URL}
-            bodyObject={ROBOT_OBJECT_NAMES.body}
-            headObject={ROBOT_OBJECT_NAMES.head}
-            className="mx-auto w-full max-w-[220px] sm:max-w-[260px] lg:mr-0 lg:max-w-[320px] xl:max-w-[360px]"
-            interactionClassName="min-h-[240px] sm:min-h-[300px] lg:min-h-[420px]"
-          />
+          <CoffeeCanvas className="mx-auto max-w-[260px] sm:max-w-[320px] lg:mr-0 lg:max-w-[460px] xl:max-w-[520px]" />
         </div>
 
         <div
