@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect, useMemo, useRef, useState, type CSSProperties, type PointerEvent } from "react";
 import type { Application } from "@splinetool/runtime";
 import { motion } from "framer-motion";
-import { Bot, Sparkles } from "lucide-react";
+import { Bot } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -71,19 +71,19 @@ const SplineScene = ({
       motionState.currentX = lerp(motionState.currentX, motionState.targetX, 0.08);
       motionState.currentY = lerp(motionState.currentY, motionState.targetY, 0.08);
 
-      wrapper.style.transform = `perspective(1600px) rotateX(${motionState.currentY * -6}deg) rotateY(${motionState.currentX * 8}deg) scale(${isHovering ? 1.03 : 1})`;
+      wrapper.style.transform = `perspective(1600px) rotateX(${motionState.currentY * -3.2}deg) rotateY(${motionState.currentX * 4.2}deg) scale(${isHovering ? 1.015 : 1})`;
       wrapper.style.setProperty("--spotlight-x", `${motionState.spotlightX}%`);
       wrapper.style.setProperty("--spotlight-y", `${motionState.spotlightY}%`);
 
       if (!isMobileViewport()) {
         if (bodyRef.current?.rotation) {
-          bodyRef.current.rotation.y = motionState.currentX * 0.35;
-          bodyRef.current.rotation.x = motionState.currentY * 0.08;
+          bodyRef.current.rotation.y = motionState.currentX * 0.2;
+          bodyRef.current.rotation.x = motionState.currentY * 0.05;
         }
 
         if (headRef.current?.rotation) {
-          headRef.current.rotation.y = motionState.currentX * 0.6;
-          headRef.current.rotation.x = motionState.currentY * 0.18;
+          headRef.current.rotation.y = motionState.currentX * 0.34;
+          headRef.current.rotation.x = motionState.currentY * 0.1;
         }
       }
 
@@ -121,11 +121,11 @@ const SplineScene = ({
   return (
     <motion.div
       className={cn("relative w-full", className)}
-      animate={{ y: [-8, 8, -8] }}
-      transition={{ duration: 5.4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+      animate={{ y: [-5, 5, -5] }}
+      transition={{ duration: 6.2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
     >
-      <div className="absolute inset-[10%] rounded-full bg-[radial-gradient(circle,rgba(110,155,255,0.35),rgba(110,155,255,0.08)_42%,transparent_74%)] blur-3xl" />
-      <div className="absolute inset-x-[16%] bottom-[8%] h-14 rounded-full bg-black/30 blur-3xl" />
+      <div className="absolute inset-[14%] rounded-full bg-[radial-gradient(circle,rgba(110,155,255,0.26),rgba(110,155,255,0.07)_46%,transparent_74%)] blur-3xl" />
+      <div className="absolute inset-x-[22%] bottom-[10%] h-10 rounded-full bg-black/18 blur-3xl" />
 
       <motion.div
         ref={wrapperRef}
@@ -133,7 +133,7 @@ const SplineScene = ({
         onPointerEnter={() => setIsHovering(true)}
         onPointerLeave={resetInteraction}
         className={cn(
-          "group relative overflow-hidden rounded-[36px] border border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(255,255,255,0.04))] p-4 shadow-[0_40px_120px_rgba(2,6,23,0.55)] backdrop-blur-2xl transition-transform duration-300 will-change-transform",
+          "group relative overflow-hidden rounded-[36px] transition-transform duration-300 will-change-transform",
           interactionClassName,
         )}
         style={
@@ -143,18 +143,17 @@ const SplineScene = ({
           } as CSSProperties
         }
       >
-        <div className="pointer-events-none absolute inset-0 rounded-[36px] bg-[radial-gradient(circle_at_var(--spotlight-x)_var(--spotlight-y),rgba(255,255,255,0.18),transparent_30%)] opacity-80 transition duration-300" />
-        <div className="pointer-events-none absolute inset-3 rounded-[30px] border border-white/8 bg-[linear-gradient(160deg,rgba(7,11,22,0.18),rgba(7,11,22,0.03))]" />
-        <div className={cn("relative aspect-[1/1.02] overflow-hidden rounded-[30px]", loaded ? "bg-transparent" : "bg-[linear-gradient(160deg,#0d1321,#131d31)]")}>
-          <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(circle_at_50%_18%,rgba(255,255,255,0.16),transparent_22%),radial-gradient(circle_at_50%_90%,rgba(0,0,0,0.32),transparent_30%)]" />
+        <div className="pointer-events-none absolute inset-0 rounded-[36px] bg-[radial-gradient(circle_at_var(--spotlight-x)_var(--spotlight-y),rgba(255,255,255,0.16),transparent_26%)] opacity-75 transition duration-300" />
+        <div className={cn("relative aspect-[0.88/1] overflow-hidden", loaded ? "bg-transparent" : "bg-transparent")}>
+          <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(circle_at_50%_20%,rgba(255,255,255,0.18),transparent_20%),radial-gradient(circle_at_50%_74%,rgba(0,0,0,0.18),transparent_24%)]" />
           <Suspense
             fallback={
               <div className="flex h-full items-center justify-center">
                 <div className="text-center">
-                  <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-white/10 bg-white/8 text-white/80 backdrop-blur-xl">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-white/10 bg-white/6 text-white/80 backdrop-blur-xl">
                     <Bot className="h-9 w-9" />
                   </div>
-                  <p className="mt-5 text-xs font-semibold uppercase tracking-[0.24em] text-white/46">Loading robot scene</p>
+                  <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/42">Loading visual</p>
                 </div>
               </div>
             }
@@ -167,15 +166,10 @@ const SplineScene = ({
                 headRef.current = findObject(app, headObject);
                 setLoaded(true);
               }}
-              className="h-full w-full !bg-transparent"
+              className="h-full w-full scale-[1.06] mix-blend-screen !bg-transparent"
               style={{ background: "transparent" }}
             />
           </Suspense>
-        </div>
-
-        <div className="pointer-events-none absolute right-6 top-6 flex items-center gap-2 rounded-full border border-white/12 bg-white/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.24em] text-white/62 backdrop-blur-xl">
-          <Sparkles className="h-3 w-3" />
-          Live Spline robot
         </div>
       </motion.div>
     </motion.div>

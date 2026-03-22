@@ -16,17 +16,17 @@ import groupDiningImg from "@/assets/group-dining.jpg";
 import liveMusicImg from "@/assets/live-music.jpg";
 
 export const navItems = [
-  { label: "Story", href: "#story" },
+  { label: "Notre histoire", href: "#story" },
   { label: "Menu", href: "#menu" },
-  { label: "Gallery", href: "#gallery" },
+  { label: "Galerie", href: "#gallery" },
   { label: "VIP", href: "#vip" },
-  { label: "Visit", href: "#visit" },
+  { label: "Nous trouver", href: "#visit" },
 ];
 
 export const heroStats = [
-  { value: "5.0", label: "Google rating" },
-  { value: "7AM-11PM", label: "Daily service" },
-  { value: "Bouskoura", label: "Train-station address" },
+  { value: "12+", label: "Origines de cafe" },
+  { value: "5.0", label: "Avis Google" },
+  { value: "7j/7", label: "Ouvert a Bouskoura" },
 ];
 
 export const storyPillars = [

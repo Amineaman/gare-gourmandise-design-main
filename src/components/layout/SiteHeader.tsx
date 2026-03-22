@@ -47,19 +47,19 @@ const SiteHeader = () => {
       <nav
         ref={navRef}
         className={cn(
-          "mx-auto flex max-w-7xl items-center justify-between rounded-[28px] border px-4 py-3 transition-all duration-500 sm:px-6",
+          "mx-auto flex max-w-7xl items-center justify-between rounded-[24px] border px-4 py-3 transition-all duration-500 sm:px-6",
           scrolled
-            ? "border-white/15 bg-[rgba(8,10,20,0.78)] shadow-[0_24px_80px_rgba(8,10,20,0.35)] backdrop-blur-xl"
-            : "border-white/10 bg-[rgba(8,10,20,0.26)] backdrop-blur-md",
+            ? "border-white/10 bg-[rgba(8,12,24,0.46)] shadow-[0_20px_60px_rgba(8,10,20,0.28)] backdrop-blur-xl"
+            : "border-white/8 bg-[rgba(8,12,24,0.3)] backdrop-blur-md",
         )}
       >
         <a href="#top" data-nav-item className="flex items-center gap-3">
-          <div className="relative h-12 w-12 overflow-hidden rounded-2xl border border-white/20 bg-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.18)]">
+          <div className="relative h-10 w-10 overflow-hidden rounded-xl border border-[#c8aa64]/25 bg-[#c8aa64]/8 shadow-[0_12px_30px_rgba(0,0,0,0.16)]">
             <img src={logoLgv} alt="Cafe Resto LGV logo" className="h-full w-full object-cover" />
           </div>
           <div>
-            <p className="font-display text-base uppercase tracking-[0.28em] text-white">LGV</p>
-            <p className="text-[11px] uppercase tracking-[0.26em] text-white/60">Cafe Resto Bouskoura</p>
+            <p className="font-editorial text-lg uppercase tracking-[0.28em] text-white">LGV</p>
+            <p className="font-jost text-[10px] uppercase tracking-[0.26em] text-white/52">Cafe Resto Bouskoura</p>
           </div>
         </a>
 
@@ -69,7 +69,7 @@ const SiteHeader = () => {
               key={item.href}
               href={item.href}
               data-nav-item
-              className="text-sm font-medium tracking-[0.14em] text-white/72 transition duration-300 hover:text-white"
+              className="font-jost text-[11px] font-normal uppercase tracking-[0.18em] text-white/52 transition duration-300 hover:text-white"
             >
               {item.label}
             </a>
@@ -79,11 +79,11 @@ const SiteHeader = () => {
         <div className="hidden md:block" data-nav-item>
           <Button
             asChild
-            className="rounded-full border border-white/15 bg-white px-5 text-[0.82rem] font-semibold uppercase tracking-[0.16em] text-slate-950 shadow-[0_14px_30px_rgba(255,255,255,0.18)] transition hover:scale-[1.02] hover:bg-white/90"
+            className="rounded-full border border-white/25 bg-transparent px-5 font-jost text-[11px] font-medium uppercase tracking-[0.2em] text-white shadow-none transition hover:scale-[1.02] hover:border-white/50 hover:bg-white/8 hover:text-white"
           >
             <a href="tel:+212661571270">
               <Phone />
-              Reserve
+              Reserver
             </a>
           </Button>
         </div>
@@ -91,7 +91,7 @@ const SiteHeader = () => {
         <button
           type="button"
           aria-label="Toggle menu"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white md:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/8 text-white md:hidden"
           onClick={() => setMobileOpen((value) => !value)}
         >
           {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -103,14 +103,14 @@ const SiteHeader = () => {
           initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -12 }}
-          className="mx-auto mt-3 max-w-7xl rounded-[28px] border border-white/12 bg-[rgba(8,10,20,0.88)] p-4 backdrop-blur-xl md:hidden"
+          className="mx-auto mt-3 max-w-7xl rounded-[24px] border border-white/12 bg-[rgba(8,12,24,0.88)] p-4 backdrop-blur-xl md:hidden"
         >
           <div className="flex flex-col gap-2">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="rounded-2xl px-4 py-3 text-sm uppercase tracking-[0.18em] text-white/78 transition hover:bg-white/5 hover:text-white"
+                className="rounded-2xl px-4 py-3 font-jost text-sm uppercase tracking-[0.18em] text-white/78 transition hover:bg-white/5 hover:text-white"
                 onClick={() => setMobileOpen(false)}
               >
                 {item.label}
@@ -118,11 +118,11 @@ const SiteHeader = () => {
             ))}
             <Button
               asChild
-              className="mt-2 rounded-full bg-white text-sm font-semibold uppercase tracking-[0.16em] text-slate-950 hover:bg-white/90"
+              className="mt-2 rounded-full border border-white/15 bg-white/8 font-jost text-sm font-medium uppercase tracking-[0.16em] text-white hover:bg-white/12"
             >
               <a href="tel:+212661571270">
                 <Phone />
-                Call now
+                Reserver
               </a>
             </Button>
           </div>

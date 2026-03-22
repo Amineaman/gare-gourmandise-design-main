@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -94,6 +94,14 @@
 @layer utilities {
   .font-display {
     font-family: var(--font-display);
+  }
+
+  .font-editorial {
+    font-family: "Cormorant Garamond", serif;
+  }
+
+  .font-jost {
+    font-family: "Jost", sans-serif;
   }
 
   .font-sans {
