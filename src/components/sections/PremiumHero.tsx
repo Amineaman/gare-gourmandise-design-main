@@ -43,7 +43,7 @@ const PremiumHero = () => {
           src={groupDiningImg}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 h-full w-full scale-[1.06] object-cover blur-[2px] brightness-[0.22] saturate-[0.62]"
+          className="absolute inset-0 h-full w-full scale-[1.06] object-cover opacity-50 blur-[2px] brightness-[0.5] saturate-[0.72]"
         />
         <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(8,12,24,0.82)_0%,rgba(8,12,24,0.52)_100%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(200,170,100,0.12),_transparent_30%),radial-gradient(circle_at_82%_22%,_rgba(125,177,255,0.12),_transparent_24%)]" />
