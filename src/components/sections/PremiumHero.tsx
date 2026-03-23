@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 import { Play } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import coffeeLatteImg from "@/assets/coffee-latte.jpg";
+import groupDiningImg from "@/assets/group-dining.jpg";
 import { Button } from "@/components/ui/button";
 import CoffeeCanvas from "@/components/ui/coffee-canvas";
 import { heroStats, quickAccessLinks } from "@/lib/site-content";
@@ -40,10 +40,10 @@ const PremiumHero = () => {
     >
       <div className="absolute inset-0">
         <img
-          src={coffeeLatteImg}
+          src={groupDiningImg}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 h-full w-full scale-[1.08] object-cover blur-[3px] brightness-[0.18] saturate-[0.55]"
+          className="absolute inset-0 h-full w-full scale-[1.06] object-cover blur-[2px] brightness-[0.22] saturate-[0.62]"
         />
         <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(8,12,24,0.82)_0%,rgba(8,12,24,0.52)_100%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(200,170,100,0.12),_transparent_30%),radial-gradient(circle_at_82%_22%,_rgba(125,177,255,0.12),_transparent_24%)]" />
